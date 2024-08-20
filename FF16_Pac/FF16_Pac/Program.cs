@@ -159,8 +159,13 @@ namespace FF16_Pac
                 try
                 {
                     reader.BaseStream.Seek((long)entry.HeaderEntryUnknown3_UINT64, SeekOrigin.Begin);
-                    string finalFolderPath = writeBasePath + Path.GetDirectoryName(entry.NOT_SERIALIZED_filePath); //NOTE TO SELF: can get an error here with illegal characters in file path.
-                    string finalFilePath = writeBasePath + entry.NOT_SERIALIZED_filePath;
+                    string writeBasePathFix = writeBasePath;
+
+                    if (writeBasePath.EndsWith("/") == false)
+                        writeBasePathFix += "/";
+
+                    string finalFolderPath = writeBasePathFix + Path.GetDirectoryName(entry.NOT_SERIALIZED_filePath); //NOTE TO SELF: can get an error here with illegal characters in file path.
+                    string finalFilePath = writeBasePathFix + entry.NOT_SERIALIZED_filePath;
 
                     if(Directory.Exists(finalFolderPath) == false)
                         Directory.CreateDirectory(finalFolderPath);
@@ -192,7 +197,7 @@ namespace FF16_Pac
             }
         }
 
-        public FF16_Archive(string pacFilePath)
+        public FF16_Archive(string pacFilePath, string folderExtractionPath)
         {
             FileInfo fileInfo = new FileInfo(pacFilePath);
             TotalFileSize = (ulong)fileInfo.Length;
@@ -270,7 +275,7 @@ namespace FF16_Pac
                 UnencryptFilePaths();
                 GetFilePaths();
 
-                ExtractFiles(reader, "J:\\WRITE-TEST-FF16\\");
+                ExtractFiles(reader, folderExtractionPath);
 
                 Console.WriteLine(" - left off at offset: {0}", reader.BaseStream.Position);
                 Console.WriteLine("entry count {0}", HeaderArchiveEntries.Length);
@@ -282,13 +287,13 @@ namespace FF16_Pac
 
     internal class Program
     {
-        public static void PrintJsonOfArchive(string pacFilePath)
+        public static void PrintJsonOfArchive(string pacFilePath, string folderExtractionPath)
         {
             using (StreamWriter file = File.CreateText(pacFilePath + ".json"))
             {
                 List<object> jsonObjects = new List<object>();
 
-                FF16_Archive archive = new FF16_Archive(pacFilePath);
+                FF16_Archive archive = new FF16_Archive(pacFilePath, folderExtractionPath);
                 jsonObjects.Add(archive);
 
                 //seralize the data and write it to the configruation file
@@ -340,7 +345,7 @@ namespace FF16_Pac
                 Console.WriteLine("=========================================");
                 Console.WriteLine("Reading... {0}", pacFilePaths[i]);
 
-                PrintJsonOfArchive(pacFilePaths[i]);
+                PrintJsonOfArchive(pacFilePaths[i], writePath);
             }
 
             Console.ReadLine();
