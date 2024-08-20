@@ -5,5 +5,7 @@ Archive tool for Final Fantasy 16 on PC. This is still experimental and a work i
 Double click the .exe, it will open up a command prompt window asking you to paste in the **folder path** containing the .pac files. After entering that it will then ask you to enter another **folder path** which is where it will extract the contents of the .pac file into.
 
 # Credits
-- [jordanbtucker](https://github.com/jordanbtucker)
-- Joschka and Surihia
+These guys helped and were amazingly fast and quick at figuring out the .pac formats.
+- **[jordanbtucker](https://github.com/jordanbtucker)**
+- **Joschka and Surihia** *(from FF Modding discord)*
+ 
