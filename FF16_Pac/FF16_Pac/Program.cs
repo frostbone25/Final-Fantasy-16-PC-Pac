@@ -61,7 +61,7 @@ namespace FF16_Pac
         public uint HeaderUnknown1_UINT32; //OFFSET 12
         public ulong HeaderArchiveFileSize_UINT64; //OFFSET 16
         public ulong[] HeaderEncryptedPadding_UINT64s;
-        public ulong HeaderUnknown2_UINT64; //(IGNORE) Not sure but this value matches a value in the header HeaderUnknown2_UINT64
+        public ulong HeaderUnknown2_UINT64; //(IGNORE) Not sure but this value matches a value in HeaderEntryUnknown4_UINT64
         public ulong HeaderEncryptedFilePathsStartOffset_UINT64;
         public ulong HeaderEncryptedFilePathsSize_UINT64;
         public byte[] HeaderBytePaddingData;
@@ -161,10 +161,23 @@ namespace FF16_Pac
                 if(Directory.Exists(finalFolderPath) == false)
                     Directory.CreateDirectory(finalFolderPath);
 
+                if (File.Exists(finalFilePath))
+                    File.Delete(finalFilePath);
+
                 using (var stream = new FileStream(finalFilePath, FileMode.CreateNew))
                 {
                     for (ulong y = 0; y < entry.HeaderEntryUnknown2_UINT64; y++)
-                        stream.WriteByte(reader.ReadByte());
+                    {
+                        if(stream.Position < (long)TotalFileSize)
+                        {
+                            stream.WriteByte(reader.ReadByte());
+                        }
+                        else
+                        {
+                            Console.WriteLine("ERROR! STOPPED WRITING, REACHING THE END OF THE FILE! ({0}/{1})... {2}", i, HeaderArchiveEntries.Length, entry.NOT_SERIALIZED_filePath);
+                            break;
+                        }
+                    }
                 }
 
                 Console.WriteLine("Extracting ({0}/{1})... {2}", i, HeaderArchiveEntries.Length, entry.NOT_SERIALIZED_filePath);
