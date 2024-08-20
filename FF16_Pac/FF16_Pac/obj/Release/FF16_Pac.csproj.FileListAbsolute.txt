@@ -1,0 +1,11 @@
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\bin\Release\FF16_Pac.exe.config
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\bin\Release\FF16_Pac.exe
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\bin\Release\FF16_Pac.pdb
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\bin\Release\Newtonsoft.Json.dll
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\bin\Release\Newtonsoft.Json.xml
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\obj\Release\FF16_Pac.csproj.AssemblyReference.cache
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\obj\Release\FF16_Pac.csproj.SuggestedBindingRedirects.cache
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\obj\Release\FF16_Pac.csproj.CoreCompileInputs.cache
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\obj\Release\FF16_Pac.csproj.CopyComplete
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\obj\Release\FF16_Pac.exe
+D:\Applications\app-custom-ff16-pac\Final-Fantasy-16-PC-Pac\FF16_Pac\FF16_Pac\obj\Release\FF16_Pac.pdb

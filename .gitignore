@@ -17,32 +17,32 @@
 mono_crash.*
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-[Ww][Ii][Nn]32/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
-bld/
-[Bb]in/
-[Oo]bj/
-[Ll]og/
-[Ll]ogs/
+FF16_Pac/[Dd]ebug/
+FF16_Pac/[Dd]ebugPublic/
+FF16_Pac/[Rr]elease/
+FF16_Pac/[Rr]eleases/
+FF16_Pac/x64/
+FF16_Pac/x86/
+FF16_Pac/[Ww][Ii][Nn]32/
+FF16_Pac/[Aa][Rr][Mm]/
+FF16_Pac/[Aa][Rr][Mm]64/
+FF16_Pac/bld/
+FF16_Pac/[Bb]in/
+FF16_Pac/[Oo]bj/
+FF16_Pac/[Ll]og/
+FF16_Pac/[Ll]ogs/
 
 # Visual Studio 2015/2017 cache/options directory
-.vs/
+FF16_Pac/.vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
 # Visual Studio 2017 auto generated files
-Generated\ Files/
+FF16_Pac/Generated\ Files/
 
 # MSTest test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
+FF16_Pac/[Tt]est[Rr]esult*/
+FF16_Pac/[Bb]uild[Ll]og.*
 
 # NUnit
 *.VisualState.xml
@@ -50,17 +50,17 @@ TestResult.xml
 nunit-*.xml
 
 # Build Results of an ATL Project
-[Dd]ebugPS/
-[Rr]eleasePS/
+FF16_Pac/[Dd]ebugPS/
+FF16_Pac/[Rr]eleasePS/
 dlldata.c
 
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
 
 # .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
+FF16_Pac/project.lock.json
+FF16_Pac/project.fragment.lock.json
+FF16_Pac/artifacts/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -177,7 +177,7 @@ DocProject/Help/Html2
 DocProject/Help/html
 
 # Click-Once directory
-publish/
+FF16_Pac/publish/
 
 # Publish Web Output
 *.[Pp]ublish.xml
@@ -230,7 +230,7 @@ _pkginfo.txt
 !?*.[Cc]ache/
 
 # Others
-ClientBin/
+FF16_Pac/ClientBin/
 ~$*
 *~
 *.dbmdl
