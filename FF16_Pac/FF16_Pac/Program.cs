@@ -164,20 +164,27 @@ namespace FF16_Pac
                 if (File.Exists(finalFilePath))
                     File.Delete(finalFilePath);
 
-                using (var stream = new FileStream(finalFilePath, FileMode.CreateNew))
+                try
                 {
-                    for (ulong y = 0; y < entry.HeaderEntryUnknown2_UINT64; y++)
+                    using (var stream = new FileStream(finalFilePath, FileMode.CreateNew))
                     {
-                        if(stream.Position < (long)TotalFileSize)
+                        for (ulong y = 0; y < entry.HeaderEntryUnknown2_UINT64; y++)
                         {
-                            stream.WriteByte(reader.ReadByte());
-                        }
-                        else
-                        {
-                            Console.WriteLine("ERROR! STOPPED WRITING, REACHING THE END OF THE FILE! ({0}/{1})... {2}", i, HeaderArchiveEntries.Length, entry.NOT_SERIALIZED_filePath);
-                            break;
+                            try
+                            {
+                                stream.WriteByte(reader.ReadByte());
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("ERROR! {0}", e.Message);
+                                break;
+                            }
                         }
                     }
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine("ERROR! {0}", e.Message);
                 }
 
                 Console.WriteLine("Extracting ({0}/{1})... {2}", i, HeaderArchiveEntries.Length, entry.NOT_SERIALIZED_filePath);
