@@ -154,18 +154,21 @@ namespace FF16_Pac
             {
                 FF16_ArchiveEntry entry = HeaderArchiveEntries[i];
 
-                reader.BaseStream.Seek((long)entry.HeaderEntryUnknown3_UINT64, SeekOrigin.Begin);
-                string finalFolderPath = writeBasePath + Path.GetDirectoryName(entry.NOT_SERIALIZED_filePath);
-                string finalFilePath = writeBasePath + entry.NOT_SERIALIZED_filePath;
-
-                if(Directory.Exists(finalFolderPath) == false)
-                    Directory.CreateDirectory(finalFolderPath);
-
-                if (File.Exists(finalFilePath))
-                    File.Delete(finalFilePath);
+                Console.WriteLine("Extracting ({0}/{1})... {2}", i, HeaderArchiveEntries.Length, entry.NOT_SERIALIZED_filePath);
 
                 try
                 {
+                    reader.BaseStream.Seek((long)entry.HeaderEntryUnknown3_UINT64, SeekOrigin.Begin);
+                    string finalFolderPath = writeBasePath + Path.GetDirectoryName(entry.NOT_SERIALIZED_filePath); //NOTE TO SELF: can get an error here with illegal characters in file path.
+                    string finalFilePath = writeBasePath + entry.NOT_SERIALIZED_filePath;
+
+                    if(Directory.Exists(finalFolderPath) == false)
+                        Directory.CreateDirectory(finalFolderPath);
+
+                    if (File.Exists(finalFilePath))
+                        File.Delete(finalFilePath);
+
+
                     using (var stream = new FileStream(finalFilePath, FileMode.CreateNew))
                     {
                         for (ulong y = 0; y < entry.HeaderEntryUnknown2_UINT64; y++)
@@ -186,8 +189,6 @@ namespace FF16_Pac
                 {
                     Console.WriteLine("ERROR! {0}", e.Message);
                 }
-
-                Console.WriteLine("Extracting ({0}/{1})... {2}", i, HeaderArchiveEntries.Length, entry.NOT_SERIALIZED_filePath);
             }
         }
 
